@@ -206,7 +206,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'gruvbox-material',
         component_separators = '|',
         section_separators = '',
       },
@@ -295,12 +295,12 @@ vim.o.mouse = 'a'
 vim.o.clipboard = 'unnamedplus'
 
 -- Set tab width to 4 columns
-vim.bo.shiftwidth = 4
-vim.bo.tabstop = 4
-vim.bo.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
 
 -- Use spaces when tabing
-vim.bo.expandtab = true
+vim.o.expandtab = true
 
 -- Shwo 80 chars marker
 -- TODO find oout why this doesnt work
