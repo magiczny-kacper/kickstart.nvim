@@ -69,6 +69,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
+  'mhinz/vim-startify',
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -595,6 +596,7 @@ local servers = {
   -- gopls = {},
   -- pyright = {},
   rust_analyzer = {},
+  taplo = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
