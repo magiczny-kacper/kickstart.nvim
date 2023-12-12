@@ -70,6 +70,7 @@ require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
   'mhinz/vim-startify',
+  'nvim-tree/nvim-web-devicons',
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -261,6 +262,11 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {}
+  },
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
