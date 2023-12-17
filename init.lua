@@ -72,6 +72,8 @@ require('lazy').setup({
   'mhinz/vim-startify',
   'nvim-tree/nvim-web-devicons',
   'majutsushi/tagbar',
+  'scrooloose/nerdcommenter',
+
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
