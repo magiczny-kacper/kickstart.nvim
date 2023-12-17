@@ -207,10 +207,26 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
+        icons_enabled = true,
         theme = 'gruvbox-material',
-        component_separators = '|',
-        section_separators = '',
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
+      },
+      sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_c = {'filename'},
+        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_y = {'progress'},
+        lualine_z = {'location'}
+      },
+      inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {'filename'},
+        lualine_x = {'location'},
+        lualine_y = {},
+        lualine_z = {}
       },
     },
   },
@@ -381,6 +397,13 @@ require('telescope').setup {
         ['<C-d>'] = false,
       },
     },
+    theme = "center",
+    sorting_strategy = "ascending",
+    layout_config = {
+      horizontal = {
+        prompt_position = "top",
+      },
+    },
   },
 }
 
@@ -458,12 +481,30 @@ vim.keymap.set('n', '<leader>fb', ':Telescope file_browser path=%:p:h select_buf
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+    ensure_installed = {
+      'c',
+      'cpp',
+      'go',
+      'lua',
+      'python',
+      'rust',
+      'tsx',
+      'javascript',
+      'typescript',
+      'vimdoc',
+      'vim',
+      'bash',
+      'devicetree',
+      'kconfig'
+    },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-    auto_install = false,
+    auto_install = true,
 
-    highlight = { enable = true },
+    highlight = { 
+      enable = true,
+      additional_vim_regex_highlight = true,
+    },
     indent = { enable = true },
     incremental_selection = {
       enable = true,
@@ -520,6 +561,24 @@ vim.defer_fn(function()
     },
   }
 end, 0)
+
+-- local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+-- 
+-- parser_config.devicetree = {
+--   install_info = {
+--     url = "https://github.com/joelspadin/tree-sitter-devicetree",
+--     files = {"src/parser.c"},
+--   },
+--   filetypes = {"overlay", "dts", "dtsi"},
+-- }
+-- 
+-- parser_config.kconfig = {
+--   install_info = {
+--     url = "https://github.com/amaanq/tree-sitter-kconfig",
+--     files = {"src/parser.c", "src/scanner.c"},
+--   },
+--   filetypes = "conf"
+-- }
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
