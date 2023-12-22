@@ -69,7 +69,6 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
-  'mhinz/vim-startify',
   'nvim-tree/nvim-web-devicons',
   'majutsushi/tagbar',
   'scrooloose/nerdcommenter',
@@ -117,6 +116,12 @@ require('lazy').setup({
     },
   },
 
+  {
+    'goolord/alpha-nvim',
+    config = function ()
+        require'alpha'.setup(require'alpha.themes.dashboard'.config)
+    end
+  },
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
   {
